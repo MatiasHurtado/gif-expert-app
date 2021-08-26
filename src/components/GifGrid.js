@@ -1,10 +1,12 @@
 // import {} from "react"
 import React from "react";
+import PropTypes from 'prop-types';
 import { useFetchGifs } from "../hooks/useFetchGifs";
 import GifGridItem from "./GifGridItem";
 // import { getGifs } from "../helpers/getGift"
 
 export default function GifGrid({ category }) {
+  //Cuando le ponemos : es por que le estamos cambiando el valor al arreglo
   const { data: images, loading } = useFetchGifs(category);
 
   return (
@@ -19,4 +21,9 @@ export default function GifGrid({ category }) {
       </div>
     </>
   );
+}
+
+
+GifGrid.propTypes ={
+  category: PropTypes.string.isRequired
 }
